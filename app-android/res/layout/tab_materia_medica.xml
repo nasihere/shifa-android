@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost android:layout_width="fill_parent"
+    android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost">
+
+    
+
+    <LinearLayout android:id="@+id/LinearLayout01"
+        android:orientation="vertical" android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
+
+        <LinearLayout
+            android:id="@+id/lin_mm_data_Notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imgkentArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_action_search2" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/multiAutoCompleteSearchMateriaMedica"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="0.80"
+                android:hint="Search here..."
+                 >
+
+                <requestFocus />
+            </MultiAutoCompleteTextView>
+
+            <ImageButton
+                android:id="@+id/imgBtnSearchMateriaMedica"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/textShadow"
+                android:layout_weight="0.09"
+                android:src="@drawable/ic_chat_msg_send" />
+
+        </LinearLayout>
+
+        <TabWidget android:id="@android:id/tabs"
+            android:layout_height="wrap_content" android:layout_width="fill_parent"></TabWidget>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+		    
+		</FrameLayout>
+
+		    
+      </LinearLayout>
+    
+</TabHost>

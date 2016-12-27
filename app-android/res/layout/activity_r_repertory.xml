@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:orientation="vertical"
+
+ android:descendantFocusability="beforeDescendants"
+  android:focusableInTouchMode="true"
+  
+  >
+    <LinearLayout
+        android:id="@+id/mainr_repertoryMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+    
+    
+       <ListView
+        android:id="@+id/lv_r_repertory_result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:focusable="true" 
+        android:descendantFocusability="beforeDescendants"
+        android:drawSelectorOnTop="true" >
+
+    </ListView>
+    
+       
+</LinearLayout>

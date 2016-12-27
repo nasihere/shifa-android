@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_chat_loadmsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/c_blue"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/loadoldmsg"
+        
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+
+ <TextView
+     android:id="@+id/view_chatmsg"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/view_chaticoright"
+     android:layout_margin="5dp"
+      
+     android:layout_toLeftOf="@+id/view_chaticoleft"
+     android:background="@drawable/bubble_green"
+     android:gravity="right"
+     android:text="@string/app_name"
+     android:textAppearance="?android:attr/textAppearanceSmall" />
+
+ <ImageView
+     android:id="@+id/view_chaticoleft"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentRight="true"
+     android:layout_below="@+id/view_chaticoright"
+     android:background="@drawable/ic_chat_right"
+     android:contentDescription="@string/emptystring" />
+ 
+ <ImageView
+     android:id="@+id/view_chaticoright"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentLeft="true"
+     android:layout_below="@+id/tv_chat_loadmsg"
+     android:background="@drawable/ic_home_chat"
+     android:contentDescription="@string/emptystring" />
+
+ <TextView
+     android:id="@+id/view_chatmsgright"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+      
+     android:layout_alignTop="@+id/view_chaticoright"
+     android:layout_margin="5dp"
+     android:layout_toRightOf="@+id/view_chaticoright"
+     android:background="@drawable/bubble_yellow"
+     android:text="@string/app_name"
+     android:textAppearance="?android:attr/textAppearanceSmall" />
+
+ <ImageView
+     android:id="@+id/view_chaticorightPM"
+     android:layout_width="wrap_content"
+     android:layout_marginTop="8dp"
+     android:layout_marginLeft="8dp"
+     android:layout_height="wrap_content"
+     android:layout_alignParentLeft="true"
+     android:layout_alignTop="@+id/view_chatmsgright"
+     android:background="@drawable/ic_chat_pm"
+     android:contentDescription="@string/emptystring" />
+
+</RelativeLayout>

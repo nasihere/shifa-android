@@ -1,0 +1,777 @@
+ <?php 
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
+    if ($_REQUEST['ver'] == "")
+        $replystyle = "display:none"; 
+    else
+        $replystyle = "color:#428bca;float:right"; 
+    $session_name = CheckUserName();
+   ?> 
+<head>
+    <link href="css/main.css" rel="stylesheet">
+        <script>
+            function doFirst(){
+                articles = document.getElementsByClassName('replydiscussion');
+                for (var i = 0; i < articles.length; i++) {
+                    articles[i].onclick = function() {
+                        
+                        var id = "discussionreply-" + this.getAttribute("data-brand");
+                        document.getElementById(id).style.display="block";
+                        
+                        
+                        
+                        
+                    }
+                }
+            }
+            function SendDiscussion(id)
+            {
+                var chat =   document.getElementById("txtdiscussionreply-"+id).value;
+                if (chat == "") return;
+                
+                var to =   id;
+                var chatter  =   document.getElementById("chatter").value;
+                var _frm =   document.getElementById("session_id").value;
+                if (_frm == "123456789") 
+                {
+                    alert("Demo account doesn't have rights to reply. Please register yourself");
+                    return;
+                }         
+                
+                
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function()
+                    {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            if (id == "-999")
+                            {
+                                location.reload();
+                            }
+                            else
+                            {
+                                
+                            }
+                            //response
+                            // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                        }
+                    }
+                xmlhttp.open("POST","pp_chat2.php",true);
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xmlhttp.send("chat="+chat+"&_frm="+_frm + "&to="+to + "&chatter="+chatter);
+                document.getElementById("txtdiscussionreply-"+id).disabled=true;
+                document.getElementById("btndiscussionreply-"+id).style.display="none";
+           
+               
+            }
+               function AjaxRequestNoResponse(URL,Parameter)
+            {
+                
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function()
+                {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        
+                    }
+                }
+                xmlhttp.open("POST",URL,true);
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xmlhttp.send(Parameter);
+               
+                
+            }
+            </script>
+            <style>
+                 .topbar {
+                     width:100px;
+                     border:1px solid gray;
+                     float:left;
+                     padding:10px;
+                 }
+                 .topbar img
+                 {
+                    margin-left:27px;
+                 }
+                 .topbar span
+                 {
+                    width:100px;
+                    display: block;
+                    text-align: center;
+                    background:blue;
+                    color: white;
+                 }
+            </style>
+    </head>
+	
+    <body onload="doFirst()" style="background:#f2f2f2">
+		
+		<input type="hidden" value="<?php echo $_REQUEST['session_id']; ?>" id="session_id"  >
+        <input type="hidden" value="<?php echo $session_name; ?>" id="chatter" />
+			
+ <div class="dashboard-wrapper">
+			<?php if  ($_REQUEST['ver'] < 89) { ?>
+				<h4>Attention: Update shifa 3.1 and get Shifa Interactive Like,Comment, & Picture facilities for each rubrics and Convert you Shifa Account to FB Account ..Please contact nasihere@gmail.com if you have any problem</h4>
+			 <?php } ?>
+           <div id="dvtopmenu">
+               <?php $noPrivateMsg =    Online_User_History("Select count(*) from tbl_app_msg where iRead = 0 and (session_id_to = '". $_REQUEST['session_id']."')","1"); ?>
+                    
+                    <div onclick="javascript:showprivatemsg()" class="topbar">
+                      <img  src="shifa-fresh-homepage/mail.png" style="height:45px">
+                    <span >(<b><?php echo $noPrivateMsg; ?></b>) New Msgs</span>
+                  
+                    </div>
+               
+          <?php  $personalinfo1 =   Online_User_History("Select personalinfo1 from tbl_app_registration where session_id  = '". $_REQUEST["session_id"]."'","1"); ?></span>
+                <?php if($personalinfo1 == 0) { ?>
+                    <div onclick="javascript:showPersonalInfoWindow()" class="topbar"> 
+                    <script>
+                        function showPersonalInfoWindow()
+                        {
+                        
+                           
+                                closeAllWindow();
+                               
+                                document.getElementById("quickupdate_personalinfo1").style.display="";
+                                window.scrollTo(0,document.getElementById("quickupdate_personalinfo1").offsetTop);
+                            
+                        }
+                    </script>
+                     <img  src="shifa-fresh-homepage/profile.png" style="height:45px">
+                    
+                   <span style="background:red">Personal Info</span>
+                    </div>
+                <?php } ?>
+                <script>
+                    function showChatBarWindow()
+                    {
+                        
+                                closeAllWindow();
+                                document.getElementById("dvRecentMessageWindow").style.display="";
+                                window.scrollTo(0,document.getElementById("dvRecentMessageWindow").offsetTop);
+                          
+                    }
+                </script>
+                
+                <div  onclick="javascript:showChatBarWindow()" class="topbar">
+                <img src="shifa-fresh-homepage/social-media-chat-icon.png" style="height:45px">
+                
+                    <span style="">Chat</span>
+                    
+                </div>
+                <script>
+                    
+                    function showDiscussionWindow()
+                    {
+                        
+                            closeAllWindow();        
+                                document.getElementById("dvRecentDiscussionWindow").style.display="";
+                                document.getElementById("dvDiscussionYourRecentWindow").style.display="";
+                                document.getElementById("dvDiscussionMindWindow").style.display="";
+                                window.scrollTo(0,document.getElementById("dvDiscussionMindWindow").offsetTop);
+                                
+                           
+                    }
+                </script>
+                <div  onclick="javascript:showDiscussionWindow()" class="topbar">
+                
+                    <img  src="shifa-fresh-homepage/ic_chatonline_group.png" style="height:45px">
+                    <span >Discussion</span>
+                
+                </div>
+                
+                <script>
+                    function showOnlineBarWindow()
+                    {
+                        
+                                closeAllWindow();
+                                  
+                            
+                                document.getElementById("dvRecentLoginWindow").style.display="";
+                                window.scrollTo(0,document.getElementById("dvRecentLoginWindow").offsetTop);
+                           
+                    }
+                    function closeAllWindow()
+                    {
+                        try
+                        {
+                            document.getElementById("dvRecentLoginWindow").style.display="none";                        
+                        }catch(e){}
+                        try
+                        {
+                            document.getElementById("dvRecentDiscussionWindow").style.display="none";
+                        }catch(e){}
+                        try
+                        {
+                            document.getElementById("dvDiscussionYourRecentWindow").style.display="none";
+                        }catch(e){}
+                        try
+                        {
+                            document.getElementById("dvDiscussionMindWindow").style.display="none";
+                        }catch(e){}
+                        try
+                        {
+                            document.getElementById("quickupdate_personalinfo1").style.display="none";
+                        
+                        }catch(e){}
+                            try
+                        {
+                            document.getElementById("dvPrivateMessagesWindow").style.display="none";
+                        
+                        }catch(e){}
+                        
+                        try
+                        {
+                            document.getElementById("dvRecentMessageWindow").style.display="none";
+                        
+                        }catch(e){}
+                        
+                    
+                    
+                    
+                        
+                    }
+                </script>
+                <div  onclick="javascript:showOnlineBarWindow()" class="topbar">
+                
+                <img  src="shifa-fresh-homepage/online-icon.png" style="height:45px">
+                    <span>Online</span>
+                    
+                </div>
+                
+          <!-- PRIVATE MSG !--->
+          
+                
+                
+                
+                <div id="dvPrivateMsg" style="position:fixed;z-index:999;width:50%;background:#efefef;display:none" class="row-fluid">
+                <script>
+                    
+                    function showprivatemsg()
+                    {
+                        
+                        closeAllWindow();
+                            document.getElementById("dvPrivateMessagesWindow").style.display = "";
+                            window.scrollTo(0,document.getElementById("dvPrivateMessagesWindow").offsetTop);
+                       
+                    }
+                            function sendPrivateMessage(id)
+                            {
+                            
+                                var msg = document.getElementById("txtPrivateMesg-"+id).value;
+                                var SessionId =   document.getElementById("session_id").value;
+                                if (SessionId != "123456789") 
+                                {
+                                    var To_Name = document.getElementById("chatter").value;
+                                    var to_Id = document.getElementById("hidPrivateMsgToId-"+id).value;
+                                
+                                    var Parameter = "session_id="+SessionId+"&session_id_to="+to_Id+"&msg="+msg+"&chatter="+To_Name;
+                                    AjaxRequestNoResponse("privatemsg/InsertPrivateMessage.php",Parameter);
+                                }
+                                document.getElementById("dvpvtmsg-"+id).style.display = "none";
+                                
+                            }
+                            function openPrivateMessage(id,to_Id, To_Name)
+                            {
+                                document.getElementById("dvpvtmsg-"+id).style.display = "block";
+                            }
+                            function CancelPrivateMessage(id)
+                            {
+                                document.getElementById("dvpvtmsg-"+id).style.display = "none";
+                            }
+                            function ActionMessage(type,_id)
+                            {
+                                var Parameter = "type="+type+"&_id="+_id;
+                                AjaxRequestNoResponse("privatemsg/ActionPrivateMessage.php",Parameter);
+                                
+                                
+                                
+                                if(type == 1)
+                                {
+                                    document.getElementById("dvShowPrivateMsgConfirm-"+_id).style.display = "none";
+                                    document.getElementById("smallShowPrivateMsg-"+_id).style.display = "block";
+                                    document.getElementById("imgPrivateMsgSrc-"+_id).style.display = "none";
+                                    document.getElementById("imgPrivateMsgSrcOpen-"+_id).style.display = "";
+                                    
+                                    
+                                }
+                                else
+                                {
+                                    document.getElementById("dvShowPrivateMsgGroup-"+_id).style.display = "none";
+                                }
+                                
+                            }
+                        </script>
+                        
+                       
+            
+          </div>
+          </div>
+            
+          
+        
+
+        <div class="main-container">
+            <div style="display:none" class="topbar">
+            <B>News: </b> <i>Private Message Beta Version Added in shifa </i> <b>How to use?</b> <img src="shifa-fresh-homepage/privatemsg.png">
+            </div>
+            <div class="row-fluid" style="display:none" id="quickupdate_personalinfo1">
+            <?php   include("quickdataentry/quickdataentry_specialist_zipcode_contact.html"); ?>
+            </div>
+            
+            
+        
+
+           
+           
+           
+           
+           
+           
+           
+            <div class="row-fluid" style="display:none"; id="dvPrivateMessagesWindow">
+            <div class="span12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    <span class="fs1" aria-hidden="true" data-icon="?"></span> Private Msg
+                  </div>
+                </div>
+                
+                <div class="widget-body">
+                  <div id="scrollbar-two">
+                    
+                      <div class="viewport" style="height:477px">
+                      <div class="overview">
+                        <div id="chats">
+                            <div style="height:564px;overflow:auto" class="tab-widget">
+                            <ul class="chats">
+                              <?php if ($dataPrivateMsg) { ?>  
+                              <?php foreach($dataPrivateMsg as $value) { ?>
+                              <li class="no-padding">
+                              <div id="dvShowPrivateMsgGroup-<?php echo $value['_id'];?>" >
+
+                                <div class="info no-margin">
+								<?php if (is_numeric( $value['session_id'])) { ?>									
+									<img style="height: 25px;width: 25px;" src="https://graph.facebook.com/<?php echo $value['session_id']; ?>/picture?type=small" alt="user">
+								<?php } else { ?>
+                                    <img style="height: 25px;width: 25px;" src="shifa-fresh-homepage/<?php echo $value['icon']; ?>" alt="user">
+								<?php } ?>
+                                    <img  onclick="javascript:openPrivateMessage(<?php echo (1 + $pvtmsg++); ?>,'<?php echo $value['session_id']; ?>','<?php echo $value['chatter']; ?>')" style="height: 15px;display:none" src="shifa-fresh-homepage/msgprivateopen.png" id="imgPrivateMsgSrcOpen-<?php echo $value['_id'];?>" alt="user" >
+                                    <img style="height: 15px;" src="shifa-fresh-homepage/<?php echo $value['iRead'];?>" id="imgPrivateMsgSrc-<?php echo $value['_id'];?>" alt="user" onclick="javascript:openPrivateMessage(<?php echo ($pvtmsg); ?>,'<?php echo $value['session_id']; ?>','<?php echo $value['chatter']; ?>')">
+                                    
+                                    <span  class="name"><?php echo $value['chatter']; ?></span>: 
+                                        <small id="smallShowPrivateMsg-<?php echo $value['_id'];?>" style="<?php echo $value['readstyle'];?>"><?php echo $value['chat']; ?>
+                                        <a style="color:#428bca;float:right" href="javascript:openPrivateMessage(<?php echo ($pvtmsg); ?>,'<?php echo $value['session_id']; ?>','<?php echo $value['chatter']; ?>')"  > Reply </a></small>
+                                        </small>
+                                        <?php if ($value['Read'] == 0) { ?>
+                                        <div id="dvShowPrivateMsgConfirm-<?php echo $value['_id'];?>" >
+                                            <small> Sent you a new message, Click Yes to show the message or No to delete the message?</small>
+                                            <small><a style="color:#428bca;"  href="javascript:ActionMessage(1,<?php echo $value['_id'];?>)"  > Yes </a></small>
+                                            <small> or </small>
+                                                <small><a style="color:#428bca;"  href="javascript:ActionMessage(2,<?php echo $value['_id'];?>)" > No </a></small>
+                                            </div>
+                                        <?php } ?>
+                                            
+                                    
+                                </div>
+                                </div>
+                                  <div style="display:none" id="dvpvtmsg-<?php echo $pvtmsg; ?>">
+                                       <h4>Private Message To <?php echo $value['chatter']; ?></h4>
+                                      <form class="tweet-form no-margin">
+                                          <input type="hidden" value ="<?php echo $value['session_id']; ?>" id="hidPrivateMsgToId-<?php echo $pvtmsg;?>" />
+                                          <input type="text" style="float:left;" id="txtPrivateMesg-<?php echo $pvtmsg;?>" class="input-block-level" rows="2" placeholder="">
+                                          <input id="btndiscussionreply-0"type="button" class="btn btn-info pull-right" value="Send" onclick="sendPrivateMessage(<?php echo $pvtmsg;?>)">&nbsp;
+                                          <input id="btndiscussionreply-0" type="button" class="btn btn-info pull-right" value="Cancel" onclick="CancelPrivateMessage(<?php echo $pvtmsg;?>)">
+                                          <div class="clearfix"></div>
+                                      </form>
+                                  </div>
+                              </li>
+                           <? } ?>
+                                <? } ?>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          
+          
+          
+          
+          
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           <div id="dvRecentMessageWindow"  class="row-fluid">
+            <div class="span12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    <span class="fs1" aria-hidden="true" data-icon="?"></span> Recent Messages
+                  </div>
+                </div>
+                  <?php if  ($_REQUEST['ver'] != "") { ?>
+                   <form class="tweet-form no-margin">
+                       <input type="text" id="txtdiscussionreply--999" class="input-block-level" rows="2" placeholder="@<?php echo $session_name; ?>: Reply here"></input>
+                        <input id="btndiscussionreply--999" type="button" class="btn btn-info pull-right" value="Send" onclick="SendDiscussion(-999)">
+                        <div class="clearfix"></div>
+                                </form>
+                  <?php } ?>
+                <div class="widget-body">
+                  <div id="scrollbar-two">
+                    
+                      <div class="viewport" style="height:477px">
+                      <div class="overview">
+                        <div id="chats">
+                            <div style="height:564px;overflow:auto" class="tab-widget">
+                            <ul class="chats">
+                              <?php if ($dataChat) { ?>  
+                              <?php foreach($dataChat as $value) { ?>
+                              <li class="no-padding">
+                                <div class="info no-margin">
+								<?php if (is_numeric( $value['session_id'])) { ?>									
+									<img style="height: 25px;width: 25px;" src="https://graph.facebook.com/<?php echo $value['session_id']; ?>/picture?type=small" alt="user">
+								<?php } else { ?>
+                                    <img style="height: 25px;width: 25px;" src="shifa-fresh-homepage/<?php echo $value['icon']; ?>" alt="user">
+								<?php } ?>
+								
+                                <?php if ($_REQUEST['session_id'] == '10205304767877899' || $_REQUEST['session_id'] == '818904868132997') { ?>									
+									<?php if ( $value['session_id'] != '10205304767877899' && $value['session_id'] != '818904868132997') { ?>
+										<a style="color:#428bca;float:left" href="http://kent.nasz.us/app_php/crack.php?force=remove&session_id=<?php echo $value['session_id']; ?>">Blocked user? </a>
+									<?php } ?>		
+								<?php } ?>		
+								    <span class="name"><?php echo $value['chatter']; ?></span>: <small><?php echo $value['chat']; ?><a style="color:#428bca;float:right" href="javascript:openPrivateMessage(<?php echo (1 + $pvtmsg++); ?>,'<?php echo $value['session_id']; ?>','<?php echo $value['chatter']; ?>')"  > Private Msg</a><img style="float:right;height: 15px;" src="sendcontactinfo/imgs/msgprivate.png" alt="user" onclick="javascript:openPrivateMessage(<?php echo ($pvtmsg); ?>,'<?php echo $value['session_id']; ?>','<?php echo $value['chatter']; ?>')"></small>
+                                </div>
+                                  <div style="display:none" id="dvpvtmsg-<?php echo $pvtmsg; ?>">
+                                       <h4>Private Message To <?php echo $value['chatter']; ?></h4>
+                                      <form class="tweet-form no-margin">
+                                          <input type="hidden" value ="<?php echo $value['session_id']; ?>" id="hidPrivateMsgToId-<?php echo $pvtmsg;?>" />
+                                          <input type="text" style="float:left;" id="txtPrivateMesg-<?php echo $pvtmsg;?>" class="input-block-level" rows="2" placeholder="">
+                                          <input id="btndiscussionreply-0"type="button" class="btn btn-info pull-right" value="Send" onclick="sendPrivateMessage(<?php echo $pvtmsg;?>)">&nbsp;
+                                          <input id="btndiscussionreply-0" type="button" class="btn btn-info pull-right" value="Cancel" onclick="CancelPrivateMessage(<?php echo $pvtmsg;?>)">
+                                          <div class="clearfix"></div>
+                                      </form>
+                                  </div>
+                              </li>
+                           <? } ?>
+                                <? } ?>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            
+            
+            
+          
+     
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            
+              <div id="dvDiscussionMindWindow"  class="row-fluid">
+            <?php if  ($_REQUEST['ver'] != "") { ?>
+          
+            <div class="span12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                      <span class="fs1" aria-hidden="true" data-icon="?"></span> What's on your mind for discussion? 
+                  </div>
+                </div>
+                <div class="widget-body">
+                                
+              <form class="tweet-form no-margin">
+                  <input type="text" id="txtdiscussionreply-0" class="input-block-level" rows="2" placeholder="Example: Weak memory causing alot of problem..."></input>
+                        <input id="btndiscussionreply-0" type="button" class="btn btn-info pull-right" value="Send" onclick="SendDiscussion(0)">
+                        <div class="clearfix"></div>
+                                </form>
+            
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+           </div>
+           
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                 <div  id="dvDiscussionYourRecentWindow"  class="row-fluid">
+     
+            <?php if ($dataDiscussion) { ?>
+            <div class="span12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    <span class="fs1" aria-hidden="true" data-icon="?"></span> Your Recent Discussion
+                  </div>
+                </div>
+                <div class="widget-body">
+                  <ul class="tweets tweet-group">
+                      <?php if ($dataDiscussion) { ?>  
+                   <?php foreach($dataDiscussion as $value) { ?>
+                    <li class="in">
+                        
+                      <div class="message no-margin">
+						<?php if (is_numeric( $value['session_id'])) { ?>									
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="https://graph.facebook.com/<?php echo $value['session_id']; ?>/picture?type=small">
+						<?php } else { ?>
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="shifa-fresh-homepage/<?php echo $value['icon']; ?>">
+						<?php } ?>
+                          
+                          
+                        <div>
+                            <p class="no-margin"><span  class="name"><?php echo $value['chatter']; ?></span>: <span class="designation"><?php echo $value['chat']; ?></span></p><small>at <?php echo $value['time']; ?></small>
+                        </div>
+                        <p class="body no-margin">
+                         
+                        </p>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                      <?php if ($value['reply']) { ?>
+                   <?php foreach($value['reply'] as $valuereply) { ?>
+                    <li class="out">
+                      <div class="message no-margin">
+                         
+						<?php if (is_numeric( $valuereply['session_id'])) { ?>									
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="https://graph.facebook.com/<?php echo $valuereply['session_id']; ?>/picture?type=small">
+						<?php } else { ?>
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="shifa-fresh-homepage/<?php echo $valuereply['icon']; ?>">
+						<?php } ?>
+						
+                        <span class="up-arrow"></span>
+                        <span class="arrow"></span>
+                          <p class="no-margin"><span  class="name">@<?php echo $valuereply['chatter']; ?></span>: <span  class="designation"><?php echo $valuereply['chat']; ?></span></p><small class="date-time"> at <?php echo $valuereply['time']; ?></small>
+                      </div>
+                    </li>
+                      <?php } ?>
+                      <? } } } ?>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <? }  ?>
+           </div>
+         
+          
+          
+          
+            
+            
+
+          <div id="dvRecentDiscussionWindow"  class="row-fluid">
+            <div class="span12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    <span class="fs1" aria-hidden="true" data-icon="?"></span>Others Recent Discussion
+                  </div>
+                </div>
+                <div class="widget-body">
+                  <ul class="tweets tweet-group">
+                      <?php if ($dataDiscussionOther) { ?>  
+                   <?php foreach($dataDiscussionOther as $value) {?>
+                    <li class="in">
+                        
+                      <div class="message no-margin">
+						<?php if (is_numeric( $value['session_id'])) { ?>									
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="https://graph.facebook.com/<?php echo $value['session_id']; ?>/picture?type=small">
+						<?php } else { ?>
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="shifa-fresh-homepage/<?php echo $value['icon']; ?>">
+						<?php } ?>
+						
+                          
+                        <div>
+                            <p class="no-margin"><span  class="name"><?php echo $value['chatter']; ?></span>: <span class="designation"><?php echo $value['chat']; ?></span> <small>
+								<?php if ($_REQUEST['session_id'] == '10205304767877899' || $_REQUEST['session_id'] == '818904868132997') { ?>									
+									<?php if ( $value['session_id'] != '10205304767877899' && $value['session_id'] != '818904868132997') { ?>
+										<a style="color:#428bca;float:left" href="http://kent.nasz.us/app_php/crack.php?force=remove&session_id=<?php echo $value['session_id']; ?>">| Blocked User?</a>
+									<?php } ?>		
+								<?php } ?>			
+                                <span style="<?php echo $replystyle; ?>" class="replydiscussion" data-brand="<?php echo $value['_id']; ?>" >Reply</span>
+                                </small></p>
+                            <div id="discussionreply-<?php echo $value['_id']; ?>" style="display:none"> <form class="tweet-form no-margin">
+                        <input type="text" id="txtdiscussionreply-<?php echo $value['_id']; ?>" class="input-block-level" rows="2" placeholder="Reply to @<?php echo $value['chatter']; ?>"></input>
+                        <input id="btndiscussionreply-<?php echo $value['_id']; ?>" type="button" class="btn btn-info pull-right" value="Send" onclick="SendDiscussion(<?php echo $value['_id']; ?>)">
+                        <div class="clearfix"></div>
+                                </form></div>
+                        </div>
+                        <p class="body no-margin">
+                         
+                        </p>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                      
+                   <?php 
+if ($value['reply'] ) {
+foreach($value['reply'] as $valuereply) { ?>
+                    <li class="out">
+                      <div class="message no-margin">
+                         
+						 <?php if (is_numeric( $valuereply['session_id'])) { ?>									
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="https://graph.facebook.com/<?php echo $valuereply['session_id']; ?>/picture?type=small">
+						<?php } else { ?>
+							<img class="avatar" style="height: 25px;width: 25px;" alt="" src="shifa-fresh-homepage/<?php echo $valuereply['icon']; ?>">
+						<?php } ?>
+						
+
+                        <span class="up-arrow"></span>
+                        <span class="arrow"></span>
+                          <p class="no-margin"><span  class="name">@<?php echo $valuereply['chatter']; ?></span> (<?php echo   Online_User_History("Select count(*) from tbl_app_chat where _frm = '". $valuereply['session_id']."'","1"); ?>): <span  class="designation"><?php echo $valuereply['chat']; ?></span></p><small class="date-time"> at <?php echo $valuereply['time']; ?></small>
+                      </div>
+                    </li>
+                      <? } } } } ?>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          
+          
+          
+          
+          
+          <div id="dvRecentLoginWindow" style="display:none" class="row-fluid">
+            
+
+            <div class="span4">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    <span class="fs1" aria-hidden="true" data-icon="?"></span> Recent Login
+                  </div>
+                </div>
+                <div class="widget-body">
+                  <div class="tab-widget">
+                    <ul class="signups">
+                    <?php if ($dataChatOnline) { 
+                    foreach($dataChatOnline as $value){ ?>
+                      <li class="no-padding">
+                       
+                        <div class="no-margin">
+							<?php if (is_numeric( $value['session_id'])) { ?>
+								<p class="no-margin"><img style="height: 25px;width: 25px;" src="https://graph.facebook.com/<?php echo $value['session_id']; ?>/picture?type=small" alt="user">             
+							<?php } else { ?>
+									<p class="no-margin"><img style="height: 25px;width: 25px;" src="shifa-fresh-homepage/<?php echo $value['icon']; ?>" alt="user">             
+							<?php } ?>
+                            <span style="color:#428bca" class="name"><?php echo $value['chatter']; ?></span> - <span class="designation"><?php echo $value['status']; ?></span></p>
+                            <u> <small onclick="javascript:openPrivateMessage(<?php echo (1 + $pvtmsg++); ?>,'<?php echo $value['session_id']; ?>','<?php echo $value['chatter']; ?>')">Send Private Msg: <img style="height: 15px;" src="sendcontactinfo/imgs/msgprivate.png" alt="user">Click Me</small></u>
+                          <br><small>Last Logged In: <?php echo $value['time']; ?></small>
+                          <br><small>Profile Created : <?php echo $value['regdate']; ?></small>  
+                            <br><small>Helped Others : <?php echo   Online_User_History("Select count(*) from tbl_app_chat where _frm = '". $value['session_id']."'"); ?> </small>  
+                          
+                        </div>
+                          <div style="display:none" id="dvpvtmsg-<?php echo $pvtmsg; ?>">
+                                       <h4>Private Message To <?php echo $value['chatter']; ?></h4>
+                                      <form class="tweet-form no-margin">
+                                          <input type="hidden" value ="<?php echo $value['session_id']; ?>" id="hidPrivateMsgToId-<?php echo $pvtmsg;?>" />
+                                          <input type="text" style="float:left;" id="txtPrivateMesg-<?php echo $pvtmsg;?>" class="input-block-level" rows="2" placeholder="">
+                                          <input id="btndiscussionreply-0"type="button" class="btn btn-info pull-right" value="Send" onclick="sendPrivateMessage(<?php echo $pvtmsg;?>)">&nbsp;
+                                          <input id="btndiscussionreply-0" type="button" class="btn btn-info pull-right" value="Cancel" onclick="CancelPrivateMessage(<?php echo $pvtmsg;?>)">
+                                          <div class="clearfix"></div>
+                                      </form>
+                                  </div>
+                      </li>
+                   <? } } ?>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+          </div>
+          
+
+          
+
+        </div>
+      </div>
+             <?php  if ($buynow == "2") { ?>
+                   <script>
+                       //       window.location = "APP_URL_REMOVE ADS";
+                   </script> 
+            <?php } ?>
+</body>

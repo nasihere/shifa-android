@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+
+    <RelativeLayout
+        android:id="@+id/imguploadtbar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentTop="true"
+        
+        android:background="@drawable/com_facebook_button_grey_normal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="Photo"
+            android:textColor="@color/black"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/txtVBtnPhotoPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Post"
+            android:padding="15dp"
+            android:textColor="@color/c_blue"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/ImgViewProfilePic"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tblButtonPic"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/tblButtonPic"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/com_facebook_button_grey_normal"
+        android:orientation="horizontal"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/imgGallerydbtn"
+                android:layout_width="fill_parent"
+                android:visibility="visible"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="Gallery" />
+
+            <Button
+                android:id="@+id/imgCameradbtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="Camera"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/imguploadbtn"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="Save" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/ImgViewProfilePic"
+        android:gravity="center_horizontal"
+        android:text="For Security Reason: We will review your photo before published into the app. Please upload more and help with your photo."
+        android:textColor="@color/c_graydark"
+        android:textSize="12sp" />
+
+</RelativeLayout>

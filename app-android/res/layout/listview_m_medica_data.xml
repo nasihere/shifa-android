@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
+    >
+  <LinearLayout
+        android:id="@+id/mainMedicaDataMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/LinearLayout01"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/black"
+      android:gravity="bottom"
+      android:orientation="vertical" >
+
+      
+  </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+		
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+         <RadioGroup
+                android:id="@+id/radioMM"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radioMMAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="All" />
+
+                <RadioButton
+                    android:id="@+id/radioMMBoreik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="boericke" />
+
+                 <RadioButton
+                    android:id="@+id/radioMMAllen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Allen" />
+
+                 <RadioButton
+                     android:id="@+id/radioMMKent"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Kent" />
+
+            </RadioGroup>
+                
+                    
+                <TextView
+                    android:id="@+id/tv_m_m_allenTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/bubble_boreick_mm"
+                    android:padding="5dp"
+                    android:text="boericke"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/txtm_m_Data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_settings"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/tv_m_m_allenTitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:background="@drawable/bubble_allen_mm"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="Allen"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/txtm_m_allen"
+                   
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_settings"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                
+               <TextView
+                    android:id="@+id/tv_m_m_allenKent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bubble_kent_mm"
+                    android:gravity="center_horizontal"
+                 
+                    android:text="Kent"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/txtm_m_Kent"
+                   
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_settings"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                
+                
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

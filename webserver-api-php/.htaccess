@@ -1,0 +1,5 @@
+RewriteEngine on
+Options +FollowSymlinks
+DirectoryIndex index.html
+
+ErrorDocument 404 "Shifa Server is temporary down, please refresh it & try again."

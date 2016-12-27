@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnReportOut"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/textShadow"
+    android:orientation="vertical"
+    android:scrollbarSize="12dip" >
+
+    <Button
+        android:id="@+id/btnKentOverviewSave"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save As" />
+
+    <ScrollView
+        android:id="@+id/scViewReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:id="@+id/lnViewReport"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvm_medica_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/textShadow"
+                android:text="Repertorial Totality"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+              
+                <TableLayout
+                    android:id="@+id/main_table"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:collapseColumns="2"
+                    android:stretchColumns="1" >
+                </TableLayout>
+            </HorizontalScrollView>
+
+           
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/textShadow"
+                android:text="Order By Sum of Grading"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+                
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TableLayout
+                    android:id="@+id/main_table_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TableLayout>
+            </HorizontalScrollView>
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/textShadow"
+                android:text="Order By Number of Symptoms Covered"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+                
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TableLayout
+                    android:id="@+id/main_Count_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TableLayout>
+            </HorizontalScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/textShadow"
+                android:gravity="center_horizontal"
+                android:text="Tap on remedies name for more option"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/chckidbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCategory"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+		android:descendantFocusability="beforeDescendants"
+		android:focusable="false"
+		android:focusableInTouchMode="false"
+        android:layout_alignParentTop="true"
+        android:text="@string/emptystring" />
+
+    <ImageButton
+        android:id="@+id/imgRem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/emptystring"
+        android:background="@drawable/ic_cateogry"
+        />
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imgRem"
+        android:layout_toLeftOf="@+id/txtCounter"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/txtCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/chckidbox"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/chckidbox"
+        android:gravity="center"
+        android:text="@string/Number"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtCategory"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/txtCategory"
+        android:layout_toRightOf="@+id/imgRem"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtRemedies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/chckidbox"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone" />
+
+</RelativeLayout>

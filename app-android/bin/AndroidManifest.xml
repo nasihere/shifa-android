@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shifa.kent"
+    android:versionCode="90"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.shifa.kent.StartUpActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- For InApp Billing -->
+        <activity android:name="com.shifa.kent.login" />
+        <activity android:name="com.shifa.kent.PurchaseItemActivity" />
+        <activity
+            android:name="com.shifa.kent.activity_kent"
+            android:windowSoftInputMode="adjustPan"   >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_kent_overview" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_Kent_post_idea">
+        </activity>
+        
+        <activity
+            android:name="com.shifa.kent.home_menu"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_report" >
+        </activity>
+        <activity
+            android:name="com.shifa.kent.chat"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity android:name="com.shifa.kent.registration" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_m_medica" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_abbreviation" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_m_medica_data" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_r_repertory" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_organon" >
+        </activity>
+        <activity android:name="com.shifa.kent.buynow" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_organon_data" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_events" >
+        </activity>
+        <activity
+            android:name="com.shifa.kent.activity_chatonline"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity android:name="com.shifa.kent.activity_privatemsg" >
+        </activity>
+        <activity android:name="com.shifa.kent.ImageGallery">
+        </activity>
+        <activity android:name="com.shifa.kent.activity_settings" >
+        </activity>
+        <activity android:name=".activity_m_medica_tab_allen" />
+        <activity android:name=".activity_m_medica_tab_borieck" />
+        <activity android:name=".activity_m_medica_tab_kent" />
+        <activity android:name=".activity_m_medica_tabviewer" >
+        </activity>
+        <activity
+            android:name="com.google.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <provider
+            android:name="com.facebook.NativeAppCallContentProvider"
+            android:authorities="com.facebook.app.NativeAppCallContentProvider678520882245977"
+            android:exported="true" />
+
+        <receiver android:name="com.shifa.kent.HelloFacebookBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="com.facebook.platform.AppCallResultBroadcast" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

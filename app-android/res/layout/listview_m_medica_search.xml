@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bubble_allen_mm"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/txtm_m_search_item_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="FULL NAME"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/CreamText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvm_medica_search_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtm_m_search_item_fullname"
+        android:layout_below="@+id/txtm_m_search_item_fullname"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="@string/status_rem"
+        android:textColor="@color/black"
+        android:textColorHint="@color/reportTableBG"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/img_mm_bor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvm_medica_search_heading"
+        android:layout_below="@+id/tvm_medica_search_heading"
+        android:src="@drawable/ic_mm_boericke" />
+
+    <TextView
+        android:id="@+id/txtm_m_search_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/img_mm_bor"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="Data borick"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/txtm_m_search_item_allen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/img_mm_allen"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="allen data"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/img_mm_kent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtm_m_search_item_allen"
+        android:src="@drawable/ic_mm_kent_logo" />
+
+    <TextView
+        android:id="@+id/txtm_m_search_item_kent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/img_mm_kent"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="kent data"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/img_mm_allen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtm_m_search_item_kent"
+        android:layout_below="@+id/txtm_m_search_item"
+        android:src="@drawable/ic_mm_allen_logo" />
+
+</RelativeLayout>

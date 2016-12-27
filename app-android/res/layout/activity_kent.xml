@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/mainKentMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"
+        android:background="@color/c_green"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/imgBackRepertory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            
+            android:src="@drawable/ic_action_previous_item_white" />
+
+        <ImageView
+            android:id="@+id/imgReportOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/edtKentSearch"
+            android:src="@drawable/ic_action_view_as_grid_white" />
+
+        <EditText
+            android:id="@+id/edtKentSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/imgkentArrow"
+            android:layout_toLeftOf="@+id/img_internet_Connected"
+            android:layout_toRightOf="@+id/imgBackRepertory"
+            android:background="@color/black"
+            android:drawableLeft="@drawable/ic_action_search_white"
+            android:ems="10"
+            android:hint="Search...."
+            android:textColor="@color/c_graydark"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/img_kent_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/imgReportOpen"
+            android:layout_toLeftOf="@+id/imgReportOpen"
+            android:background="@drawable/ic_action_add_to_queue" />
+
+        <ImageView
+            android:id="@+id/img_internet_Connected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            
+            android:layout_alignTop="@+id/edtKentSearch"
+            android:layout_toLeftOf="@+id/img_kent_overview"
+            android:background="@drawable/ic_action_network_wifi" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayback" >
+
+        <ImageView
+            android:id="@+id/img_notify_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_action_search_kent"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/linNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/lv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/c_white"
+            android:descendantFocusability="beforeDescendants"
+            android:drawSelectorOnTop="true"
+            android:focusable="true" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.08"
+        android:alpha="0.8"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

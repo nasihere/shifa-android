@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/mainHomeMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scViewReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/lvhomemenu"
+                android:layout_width="fill_parent"
+                android:layout_height="337dp"
+                android:background="@color/textShadow"
+                android:descendantFocusability="beforeDescendants"
+                android:drawSelectorOnTop="true" >
+            </ListView>
+
+            <WebView
+                android:id="@+id/webTmp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lvhomemenu"
+                android:focusableInTouchMode="true" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

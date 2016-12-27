@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+    <ScrollView
+	    android:id="@+id/scrBuyNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+   <Button
+        android:id="@+id/btn_UpdateDatabaseb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Update database From Server" />
+        
+        
+    <Button
+        android:id="@+id/btn_setting_Migrate2Fb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Migrate Shifa Account to Facebook" />
+
+        
+    <Button
+        android:id="@+id/btn_setting_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Help" />
+
+    <Button
+        android:id="@+id/btn_setting_Profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:layout_below="@+id/btn_setting_help"
+        android:text="Profile" />
+    
+    <Button
+        android:id="@+id/btn_setting_BuyNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_setting_Profile"
+        android:text="Buy Now" />
+
+    <Button
+        android:id="@+id/btn_setting_KentSearchByReset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_setting_BuyNow"
+        android:text="Reset Repertory Search By" />
+<Button
+        android:id="@+id/btn_setting_Materia_Medica_lang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+        android:text="Materia Medica Language" />
+    <Button
+        android:id="@+id/btn_setting_TellAFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+        android:text="Tell a Friend" />
+ <Button
+        android:id="@+id/btn_setting_TalkToDeveloper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+        android:text="Talk to App Developer" />
+
+ <Button
+        android:id="@+id/btnAskAExpert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Talk to Homeopathy Expert" />
+ 
+ <Button
+        android:id="@+id/btnFacebookLikePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shifa Facebook Page (Like)" />
+ 
+ 
+ <Button
+        android:id="@+id/btn_setting_MemoryClean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear Shifa Downloaded pictures" />
+    <Button
+        
+        android:id="@+id/btn_setting_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_setting_TellAFriend"
+        android:text="Logout" />
+
+    
+      </LinearLayout>
+  </ScrollView>
+</RelativeLayout>

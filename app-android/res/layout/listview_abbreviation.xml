@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
+    >
+    
+ <TextView
+     android:id="@+id/txtabbreviation_item"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignBottom="@+id/img_abbre_Rem1"
+     android:layout_alignParentRight="true"
+     android:layout_alignParentTop="true"
+     android:layout_toRightOf="@+id/img_abbreviation_rem2"
+     android:gravity="center_vertical"
+     android:text="@string/app_name"
+     android:textAppearance="?android:attr/textAppearanceMedium"
+     android:textColor="@color/c_orange" />
+
+    <ImageButton
+        android:id="@+id/img_abbreviation_rem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_home_abbreviation"
+        android:contentDescription="@string/emptystring"
+         />
+
+    <TextView
+        android:id="@+id/tv_abbreviation_remediesName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtabbreviation_item"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtabbreviation_item"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+</RelativeLayout>

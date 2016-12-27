@@ -1,0 +1,571 @@
+<?php
+     $q = "Select * from tbl_app_registration where session_id  = '". $_REQUEST["session_id"]."'";
+    $resultset = ResultSet($q);
+    if ($resultset != "")
+        $v = mysql_fetch_array($resultset);
+   
+    $personinfo1 = $v["personalinfo1"];
+    if($personinfo1 == 1) return "";
+    $placeholder_hospital =   ($v["hospital"] == "") ? "Example: Fortis" : $v["hospital"];
+    $placeholder_clinic =  ($v["clinic"] == "") ? "Example: Shifa" : $v["clinic"];
+    $placeholder_Mobile =   ($v["mobileNo"] == "") ? "Example: 98337346XX / 323-300-XXXX" : $v["mobileNo"];
+    $placeholder_Contactno =  ($v["alternateNo"] == "") ? "Any other Home or office number" : $v["alternateNo"];     
+
+    $placeholder_FirstName =  ($v["fname"] == "") ? "Example: Nasir" : $v["fname"];
+    $placeholder_LastName =  ($v["lname"] == "") ? "Example: Sayed" : $v["lname"];
+    $placeholder_City =  ($v["city"] == "") ? "Example: Mumbai" : $v["city"];
+    $placeholder_Country =  ($v["country"] == "") ? "Example: India" : $v["country"];
+    $placeholder_Profession =  ($v["Profession"] == "Example") ? "" : $v["Profession"];
+    $placeholder_ClinicName =  ($v["clinic"] == "") ? "Example: Shifa" : $v["clinic"];
+    $placeholder_ClinicAddress =  ($v["ClinicAddress"] == "") ? "Example: 14XXX, Victory Blvd, Aprt #2X1, Van Nuys, CA - 91401" : $v["ClinicAddress"];
+    $placeholder_Website =  ($v["website"] == "") ? "Example: http://www.shifa.in" : $v["website"];
+
+
+?>
+<script>
+         
+            function SubmitPersonalInfo()
+            {
+                var txtClinic =   document.getElementById("txtQuickUpdateClinicName").value;
+                var txtWebsite =   document.getElementById("txtQuickUpdateWebsite").value;
+                var txtMobileNo =   document.getElementById("txtQuickUpdateMobileNo").value;
+                var txtAlternateNo =   document.getElementById("txtQuickUpdateAlternateNo").value;
+                var txtSpeciality =   document.getElementById("specialty").value;
+
+                var txtFirstName =   document.getElementById("txtQuickUpdateFirstName").value;
+                var txtLastName =   document.getElementById("txtQuickUpdateLastName").value;
+                var txtCity =   document.getElementById("txtQuickUpdateCity").value;
+                var txtCountry =   document.getElementById("txtQuickUpdateCountry").value;
+                var txtProfession =   document.getElementById("txtQuickUpdateProfession").value;
+                var txtClinicAddress =   document.getElementById("txtQuickUpdateClinicAddress").value;
+                
+                var session_id =   document.getElementById("session_id").value;
+                                
+                
+                    
+                
+                
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function()
+                    {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            alert("Thanks For the update");
+                            //response
+                            // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                        }
+                    }
+                xmlhttp.open("POST","quickdataentry/quickdataentry_personalinfo.php",true);
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xmlhttp.send
+                (
+                "clinic="+txtClinic+"&"+
+                "website="+txtWebsite+"&"+
+                "mobileNo="+txtMobileNo+"&"+
+                "alternateNo="+txtAlternateNo+"&"+
+                "speciality="+txtSpeciality+"&"+
+                
+                "FirstName="+txtFirstName+"&"+
+                "LastName="+txtLastName+"&"+
+                "City="+txtCity+"&"+
+                "Country="+txtCountry+"&"+
+                "Profession="+txtProfession+"&"+
+                "ClinicAddress="+txtClinicAddress+"&"+
+                
+                
+                "session_id="+session_id
+                );
+                document.getElementById("quickupdate_personalinfo1").disabled=true;
+                document.getElementById("quickupdate_personalinfo1").style.display="none";
+            
+                
+                
+               
+            }
+            </script>
+            
+
+            <div class="span12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                      <span class="fs1" aria-hidden="true" data-icon="?"></span>Personal Info</a>
+                  </div>
+                </div>
+                <div class="widget-body">
+                                
+             <div >
+          
+           
+            
+                <form class="form-horizontal no-margin">
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                First Name:
+                              </label>
+                              <div class="controls controls-row">
+                                <input class="span12" id="txtQuickUpdateFirstName" value="<?php echo $v["fname"];?>" type="text" placeholder="<?php echo $placeholder_FirstName; ?>">
+                              </div>
+                        </div>
+                        
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                Last Name:
+                              </label>
+                              <div class="controls controls-row">
+                                <input class="span12" id="txtQuickUpdateLastName" value="<?php echo $v["lname"];?>" type="text" placeholder="<?php echo $placeholder_LastName; ?>">
+                              </div>
+                        </div>
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                City:
+                              </label>
+                              <div class="controls controls-row">
+                                <input class="span12" id="txtQuickUpdateCity" value="<?php echo $v["city"];?>" type="text" placeholder="<?php echo $placeholder_City; ?>">
+                              </div>
+                        </div>
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                Country:
+                              </label>
+                              <div class="controls controls-row">
+                                
+                                <select id="txtQuickUpdateCountry" name="countries">
+                                <option value="">Pick a Country</option>
+<option value="AF">Afghanistan</option>
+<option value="AX">Ãland Islands</option>
+<option value="AL">Albania</option>
+<option value="DZ">Algeria</option>
+<option value="AS">American Samoa</option>
+<option value="AD">Andorra</option>
+<option value="AO">Angola</option>
+<option value="AI">Anguilla</option>
+<option value="AQ">Antarctica</option>
+<option value="AG">Antigua and Barbuda</option>
+<option value="AR">Argentina</option>
+<option value="AM">Armenia</option>
+<option value="AW">Aruba</option>
+<option value="AU">Australia</option>
+<option value="AT">Austria</option>
+<option value="AZ">Azerbaijan</option>
+<option value="BS">Bahamas</option>
+<option value="BH">Bahrain</option>
+<option value="BD">Bangladesh</option>
+<option value="BB">Barbados</option>
+<option value="BY">Belarus</option>
+<option value="BE">Belgium</option>
+<option value="BZ">Belize</option>
+<option value="BJ">Benin</option>
+<option value="BM">Bermuda</option>
+<option value="BT">Bhutan</option>
+<option value="BO">Bolivia</option>
+<option value="BA">Bosnia and Herzegovina</option>
+<option value="BW">Botswana</option>
+<option value="BV">Bouvet Island</option>
+<option value="BR">Brazil</option>
+<option value="IO">British Indian Ocean Territory</option>
+<option value="BN">Brunei Darussalam</option>
+<option value="BG">Bulgaria</option>
+<option value="BF">Burkina Faso</option>
+<option value="BI">Burundi</option>
+<option value="KH">Cambodia</option>
+<option value="CM">Cameroon</option>
+<option value="CA">Canada</option>
+<option value="CV">Cape Verde</option>
+<option value="KY">Cayman Islands</option>
+<option value="CF">Central African Republic</option>
+<option value="TD">Chad</option>
+<option value="CL">Chile</option>
+<option value="CN">China</option>
+<option value="CX">Christmas Island</option>
+<option value="CC">Cocos (Keeling) Islands</option>
+<option value="CO">Colombia</option>
+<option value="KM">Comoros</option>
+<option value="CG">Congo</option>
+<option value="CD">Congo, The Democratic Republic of The</option>
+<option value="CK">Cook Islands</option>
+<option value="CR">Costa Rica</option>
+<option value="CI">Cote D'ivoire</option>
+<option value="HR">Croatia</option>
+<option value="CU">Cuba</option>
+<option value="CY">Cyprus</option>
+<option value="CZ">Czech Republic</option>
+<option value="DK">Denmark</option>
+<option value="DJ">Djibouti</option>
+<option value="DM">Dominica</option>
+<option value="DO">Dominican Republic</option>
+<option value="EC">Ecuador</option>
+<option value="EG">Egypt</option>
+<option value="SV">El Salvador</option>
+<option value="GQ">Equatorial Guinea</option>
+<option value="ER">Eritrea</option>
+<option value="EE">Estonia</option>
+<option value="ET">Ethiopia</option>
+<option value="FK">Falkland Islands (Malvinas)</option>
+<option value="FO">Faroe Islands</option>
+<option value="FJ">Fiji</option>
+<option value="FI">Finland</option>
+<option value="FR">France</option>
+<option value="GF">French Guiana</option>
+<option value="PF">French Polynesia</option>
+<option value="TF">French Southern Territories</option>
+<option value="GA">Gabon</option>
+<option value="GM">Gambia</option>
+<option value="GE">Georgia</option>
+<option value="DE">Germany</option>
+<option value="GH">Ghana</option>
+<option value="GI">Gibraltar</option>
+<option value="GR">Greece</option>
+<option value="GL">Greenland</option>
+<option value="GD">Grenada</option>
+<option value="GP">Guadeloupe</option>
+<option value="GU">Guam</option>
+<option value="GT">Guatemala</option>
+<option value="GG">Guernsey</option>
+<option value="GN">Guinea</option>
+<option value="GW">Guinea-bissau</option>
+<option value="GY">Guyana</option>
+<option value="HT">Haiti</option>
+<option value="HM">Heard Island and Mcdonald Islands</option>
+<option value="VA">Holy See (Vatican City State)</option>
+<option value="HN">Honduras</option>
+<option value="HK">Hong Kong</option>
+<option value="HU">Hungary</option>
+<option value="IS">Iceland</option>
+<option value="IN">India</option>
+<option value="ID">Indonesia</option>
+<option value="IR">Iran, Islamic Republic of</option>
+<option value="IQ">Iraq</option>
+<option value="IE">Ireland</option>
+<option value="IM">Isle of Man</option>
+<option value="IL">Israel</option>
+<option value="IT">Italy</option>
+<option value="JM">Jamaica</option>
+<option value="JP">Japan</option>
+<option value="JE">Jersey</option>
+<option value="JO">Jordan</option>
+<option value="KZ">Kazakhstan</option>
+<option value="KE">Kenya</option>
+<option value="KI">Kiribati</option>
+<option value="KP">Korea, Democratic People's Republic of</option>
+<option value="KR">Korea, Republic of</option>
+<option value="KW">Kuwait</option>
+<option value="KG">Kyrgyzstan</option>
+<option value="LA">Lao People's Democratic Republic</option>
+<option value="LV">Latvia</option>
+<option value="LB">Lebanon</option>
+<option value="LS">Lesotho</option>
+<option value="LR">Liberia</option>
+<option value="LY">Libyan Arab Jamahiriya</option>
+<option value="LI">Liechtenstein</option>
+<option value="LT">Lithuania</option>
+<option value="LU">Luxembourg</option>
+<option value="MO">Macao</option>
+<option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+<option value="MG">Madagascar</option>
+<option value="MW">Malawi</option>
+<option value="MY">Malaysia</option>
+<option value="MV">Maldives</option>
+<option value="ML">Mali</option>
+<option value="MT">Malta</option>
+<option value="MH">Marshall Islands</option>
+<option value="MQ">Martinique</option>
+<option value="MR">Mauritania</option>
+<option value="MU">Mauritius</option>
+<option value="YT">Mayotte</option>
+<option value="MX">Mexico</option>
+<option value="FM">Micronesia, Federated States of</option>
+<option value="MD">Moldova, Republic of</option>
+<option value="MC">Monaco</option>
+<option value="MN">Mongolia</option>
+<option value="ME">Montenegro</option>
+<option value="MS">Montserrat</option>
+<option value="MA">Morocco</option>
+<option value="MZ">Mozambique</option>
+<option value="MM">Myanmar</option>
+<option value="NA">Namibia</option>
+<option value="NR">Nauru</option>
+<option value="NP">Nepal</option>
+<option value="NL">Netherlands</option>
+<option value="AN">Netherlands Antilles</option>
+<option value="NC">New Caledonia</option>
+<option value="NZ">New Zealand</option>
+<option value="NI">Nicaragua</option>
+<option value="NE">Niger</option>
+<option value="NG">Nigeria</option>
+<option value="NU">Niue</option>
+<option value="NF">Norfolk Island</option>
+<option value="MP">Northern Mariana Islands</option>
+<option value="NO">Norway</option>
+<option value="OM">Oman</option>
+<option value="PK">Pakistan</option>
+<option value="PW">Palau</option>
+<option value="PS">Palestinian Territory, Occupied</option>
+<option value="PA">Panama</option>
+<option value="PG">Papua New Guinea</option>
+<option value="PY">Paraguay</option>
+<option value="PE">Peru</option>
+<option value="PH">Philippines</option>
+<option value="PN">Pitcairn</option>
+<option value="PL">Poland</option>
+<option value="PT">Portugal</option>
+<option value="PR">Puerto Rico</option>
+<option value="QA">Qatar</option>
+<option value="RE">Reunion</option>
+<option value="RO">Romania</option>
+<option value="RU">Russian Federation</option>
+<option value="RW">Rwanda</option>
+<option value="SH">Saint Helena</option>
+<option value="KN">Saint Kitts and Nevis</option>
+<option value="LC">Saint Lucia</option>
+<option value="PM">Saint Pierre and Miquelon</option>
+<option value="VC">Saint Vincent and The Grenadines</option>
+<option value="WS">Samoa</option>
+<option value="SM">San Marino</option>
+<option value="ST">Sao Tome and Principe</option>
+<option value="SA">Saudi Arabia</option>
+<option value="SN">Senegal</option>
+<option value="RS">Serbia</option>
+<option value="SC">Seychelles</option>
+<option value="SL">Sierra Leone</option>
+<option value="SG">Singapore</option>
+<option value="SK">Slovakia</option>
+<option value="SI">Slovenia</option>
+<option value="SB">Solomon Islands</option>
+<option value="SO">Somalia</option>
+<option value="ZA">South Africa</option>
+<option value="GS">South Georgia and The South Sandwich Islands</option>
+<option value="ES">Spain</option>
+<option value="LK">Sri Lanka</option>
+<option value="SD">Sudan</option>
+<option value="SR">Suriname</option>
+<option value="SJ">Svalbard and Jan Mayen</option>
+<option value="SZ">Swaziland</option>
+<option value="SE">Sweden</option>
+<option value="CH">Switzerland</option>
+<option value="SY">Syrian Arab Republic</option>
+<option value="TW">Taiwan, Province of China</option>
+<option value="TJ">Tajikistan</option>
+<option value="TZ">Tanzania, United Republic of</option>
+<option value="TH">Thailand</option>
+<option value="TL">Timor-leste</option>
+<option value="TG">Togo</option>
+<option value="TK">Tokelau</option>
+<option value="TO">Tonga</option>
+<option value="TT">Trinidad and Tobago</option>
+<option value="TN">Tunisia</option>
+<option value="TR">Turkey</option>
+<option value="TM">Turkmenistan</option>
+<option value="TC">Turks and Caicos Islands</option>
+<option value="TV">Tuvalu</option>
+<option value="UG">Uganda</option>
+<option value="UA">Ukraine</option>
+<option value="AE">United Arab Emirates</option>
+<option value="GB">United Kingdom</option>
+<option value="US">United States</option>
+<option value="UM">United States Minor Outlying Islands</option>
+<option value="UY">Uruguay</option>
+<option value="UZ">Uzbekistan</option>
+<option value="VU">Vanuatu</option>
+<option value="VE">Venezuela</option>
+<option value="VN">Viet Nam</option>
+<option value="VG">Virgin Islands, British</option>
+<option value="VI">Virgin Islands, U.S.</option>
+<option value="WF">Wallis and Futuna</option>
+<option value="EH">Western Sahara</option>
+<option value="YE">Yemen</option>
+<option value="ZM">Zambia</option>
+<option value="ZW">Zimbabwe</option>
+</select>
+    
+    
+    
+                                    <script>
+                            document.getElementById("txtQuickUpdateCountry").value = "<?php echo $v["country"];?>";
+                        </script>
+                        
+                        
+                              </div>
+                        </div>
+                        
+                        
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                Profession:
+                              </label>
+                              <div class="controls controls-row">
+                            
+                                <select id="txtQuickUpdateProfession">
+                                    <option value="">Pick a Profession</option>
+                                    <option value="Homoeopathic-Practitioner">Homoeopathic Practitioner</option>
+                                    <option value="Homoeopathic-Professor">Homoeopathic Professor</option>
+                                    <option value="Homoeopathic-Student">Homoeopathic Student</option>
+                                    <option value="Homoeopathic-Patient">Homoeopathic Patient</option>
+                                    <option value="Other">Other</option>
+                                    
+                                </select>
+                                
+                                    <script>
+                            document.getElementById("txtQuickUpdateProfession").value = "<?php echo $v["Profession"]; ?>";
+                        </script>
+                             </div>
+                        </div>
+                        
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                Clinic Name:
+                              </label>
+                              <div class="controls controls-row" >
+                                <input class="span12" id="txtQuickUpdateClinicName" value="<?php echo $v["clinic"];?>" type="text" placeholder="<?php echo $placeholder_ClinicName; ?>">
+                              </div>
+                        </div>
+                        
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                Clinic Address:
+                              </label>
+                              <div class="controls controls-row">
+                                <input class="span12"  id="txtQuickUpdateClinicAddress" value="<?php echo $v["ClinicAddress"];?>" type="text" placeholder="<?php echo $placeholder_ClinicAddress; ?>">
+                              </div>
+                        </div>
+                            <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">Website</label>
+                              <div class="controls controls-row" >
+                                <input class="span12"  id="txtQuickUpdateWebsite" value="<?php echo $v["website"];?>" type="text" placeholder="<?php echo $placeholder_Website; ?>">
+                              </div>
+                        </div>
+                        
+                        
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">Mobile No:</label>
+                              <div class="controls controls-row" >
+                                <input class="span12"  id="txtQuickUpdateMobileNo" value="<?php echo $v["mobileNo"];?>" type="text" placeholder="<?php echo $placeholder_Mobile; ?>">
+                              </div>
+                        </div>
+                        
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">Alternate No:</label>
+                              <div class="controls controls-row" >
+                                <input class="span12"  id="txtQuickUpdateAlternateNo" value="<?php echo $v["alternateNo"];?>" type="text" placeholder="<?php echo $placeholder_Contactno; ?>">
+                              </div>
+                        </div>
+                        <div class="control-group  no-margin">
+                              <label class="control-label  no-margin"  style="width:120px">
+                                Speciality:
+                              </label>
+                              <div class="controls controls-row" >
+                                
+                              
+                        
+                        
+                        <fieldset  id="txtQuickUpdateSpeciality"  class="radtabs_content is-active">
+                            <select id="specialty">
+                                <option value="">Pick a Specialty</option>
+                                <option value="addiction-psychiatrists">Addiction Psychiatry</option>
+                                <option value="adolescent-medicine-specialists">Adolescent Medicine</option>
+                                <option value="allergist-immunologists">Allergy &amp; Immunology</option>
+                                <option value="anesthesiologists">Anesthesiology</option>
+                                <option value="cardiac-electrophysiologists">Cardiac Electrophysiology</option>
+                                <option value="cardiologists">Cardiovascular Disease</option>
+                                <option value="child-adolescent-psychiatrists">Child &amp; Adolescent Psychiatry</option>
+                                <option value="pediatric-neurologists">Child Neurology</option>
+                                <option value="clinical-geneticists">Clinical Genetics</option>
+                                <option value="colon-and-rectal-surgeons">Colon &amp; Rectal Surgery</option>
+                                <option value="critical-care-specialists">Critical Care Medicine</option>
+                                <option value="dermatologists">Dermatology</option>
+                                <option value="diagnostic-radiologists">Diagnostic Radiology</option>
+                                <option value="endocrinologists">Endocrinology, Diabetes &amp; Metabolism</option>
+                                <option value="family-medicine-doctors">Family Medicine</option>
+                                <option value="forensic-psychiatrists">Forensic Psychiatry</option>
+                                <option value="gastroenterologists">Gastroenterology</option>
+                                <option value="geriatricians">Geriatric Medicine</option>
+                                <option value="geriatric-psychiatrists">Geriatric Psychiatry</option>
+                                <option value="gynecologic-oncologists">Gynecologic Oncology</option>
+                                <option value="hand-surgeons">Hand Surgery</option>
+                                <option value="hematologists">Hematology</option>
+                                <option value="palliative-care-specialists">Hospice &amp; Palliative Medicine</option>
+                                <option value="infectious-disease-specialists">Infectious Disease</option>
+                                <option value="internists">Internal Medicine</option>
+                                <option value="interventional-cardiologists">Interventional Cardiology</option>
+                                <option value="perinatologists">Maternal &amp; Fetal Medicine</option>
+                                <option value="medical-oncologists">Medical Oncology</option>
+                                <option value="neonatalogists">Neonatal-Perinatal Medicine</option>
+                                <option value="nephrologists">Nephrology</option>
+                                <option value="neurosurgeons">Neurological Surgery</option>
+                                <option value="neurologists">Neurology</option>
+                                <option value="neuroradiologists">Neuroradiology</option>
+                                <option value="nuclear-medicine-specialists">Nuclear Medicine</option>
+                                <option value="obstetrician-gynecologists">Obstetrics &amp; Gynecology</option>
+                                <option value="occupational-medicine-specialists">Occupational Medicine</option>
+                                <option value="oncologists">Oncology</option>
+                                <option value="ophthalmologists">Ophthalmology</option>
+                                <option value="orthopedists">Orthopedics</option>
+                                <option value="orthopedic-surgeons">Orthopedic Surgery</option>
+                                <option value="ent-otolaryngologists">Otolaryngology</option>
+                                <option value="pain-management-specialists">Pain Medicine</option>
+                                <option value="pathologists">Pathology</option>
+                                <option value="psychology">Psychology</option>
+                                
+                                <option value="pediatric-allergist-immunologists">Pediatric Allergy &amp; Immunology</option>
+                                <option value="pediatric-cardiologists">Pediatric Cardiology</option>
+                                <option value="pediatric-critical-care-physicians">Pediatric Critical Care Medicine</option>
+                                <option value="pediatric-emergency-medicine-physicians">Pediatric Emergency Medicine</option>
+                                <option value="pediatric-endocrinologists">Pediatric Endocrinology</option>
+                                <option value="pediatric-gastroenterologists">Pediatric Gastroenterology</option>
+                                <option value="pediatric-hematologist-oncologists">Pediatric Hematology-Oncology</option>
+                                <option value="pediatric-infectious-disease-specialists">Pediatric Infectious Disease</option>
+                                <option value="pediatric-nephrologists">Pediatric Nephrology</option>
+                                <option value="pediatric-ent-otolaryngologists">Pediatric Otolaryngology</option>
+                                <option value="pediatric-pulmonologists">Pediatric Pulmonology</option>
+                                <option value="pediatric-radiologists">Pediatric Radiology</option>
+                                <option value="pediatric-rheumatologists">Pediatric Rheumatology</option>
+                                <option value="pediatricians">Pediatrics</option>
+                                <option value="pediatric-surgeons">Pediatric Surgery</option>
+                                <option value="physiatrists">Physical Medicine &amp; Rehabilitation</option>
+                                <option value="plastic-surgeons">Plastic Surgery</option>
+                                <option value="preventive-medicine-physicians">Preventive Medicine</option>
+                                <option value="psychiatrists">Psychiatry</option>
+                                <option value="preventive-medicine-physicians">Public Health &amp; Genl Preventive Med</option>
+                                <option value="pulmonologists">Pulmonary Disease</option>
+                                <option value="radiation-oncologists">Radiation Oncology</option>
+                                <option value="radiologists">Radiology</option>
+                                <option value="reproductive-endocrinologists">Reproductive Endocrinology</option>
+                                <option value="rheumatologists">Rheumatology</option>
+                                <option value="sports-medicine-specialists">Sports Medicine</option>
+                                <option value="surgeons">Surgery</option>
+                                <option value="critical-care-surgeons">Surgical Critical Care</option>
+                                <option value="therapeutic-radiologists">Therapeutic Radiology</option>
+                                <option value="cardiac-thoracic-surgeons">Thoracic &amp; Cardiac Surgery</option>
+                                <option value="urologists">Urology</option>
+                                <option value="vascular-and-interventional-radiologists">Vascular &amp; Interventional Radiology</option>
+                                <option value="vascular-surgeons">Vascular Surgery</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        
+                        
+                    </fieldset>
+                        <script>
+                            document.getElementById("specialty").value = "<?php echo $v["speciality"]; ?>";
+                        </script>
+                    </div>
+                        <input  type="button" class="btn btn-info pull-right" value="Save" onclick="SubmitPersonalInfo()">
+                        </div>
+                        
+                </form>
+            
+        </div>
+            
+                </div>
+              </div>
+            </div>
+          
+          
+          

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainChatOnline"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/img_chatonline_rem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_chatonline_to"
+        android:contentDescription="@string/emptystring" />
+
+    <TextView
+        android:id="@+id/tv_chatonline_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_chatonline_status"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/img_chatonline_rem2"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tv_chatonline_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_chatonline_name"
+        android:layout_alignBottom="@+id/tv_chatonline_name"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:text="@string/app_id"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tv_chatonline_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/black"
+        android:layout_below="@+id/img_chatonline_rem2"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:paddingTop="15dp"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <ImageView
+            android:id="@+id/img_chatonline_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_id"
+            android:layout_below="@+id/tv_chatonline_status"
+            android:layout_toLeftOf="@+id/tv_chatonline_name"
+            android:paddingTop="10dp"
+            android:src="@drawable/ic_chatonline_from" />
+
+        <TextView
+            android:id="@+id/tv_chatonline_replies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/img_chatonline_post"
+            android:layout_toRightOf="@+id/img_chatonline_post"
+            android:paddingTop="10dp"
+            android:text="@string/app_id"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/tvDateTIme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_chatonline_status"
+            android:layout_alignLeft="@+id/tv_chatonline_name"
+            android:layout_alignParentRight="true"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/c_gray" />
+
+        <TextView
+            android:id="@+id/tv_chatOnline_loadmsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/img_chatonline_post"
+            android:layout_marginTop="125dp"
+            android:background="@color/c_blue"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="@string/loadoldmsg"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tvGrybarDiscussion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img_chatonline_reply"
+            android:layout_below="@+id/img_chatonline_post"
+            android:background="@drawable/com_facebook_button_grey_normal"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/img_chatonline_delete1"
+            android:layout_width="wrap_content"
+            android:contentDescription="@string/app_id"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvGrybarDiscussion"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tvGrybarDiscussion"
+            android:src="@drawable/ic_chatonline_delete" />
+
+        <ImageView
+            android:id="@+id/img_chatonline_PM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_id"
+            android:layout_alignBottom="@+id/tvGrybarDiscussion"
+            android:layout_below="@+id/img_chatonline_post"
+            android:layout_toLeftOf="@+id/img_chatonline_delete1"
+            android:src="@drawable/ic_discussion_pm" />
+
+        <ImageView
+            android:id="@+id/img_chatonline_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_id"
+            android:layout_alignBottom="@+id/tvGrybarDiscussion"
+            android:layout_alignTop="@+id/tvGrybarDiscussion"
+            android:layout_toLeftOf="@+id/img_chatonline_PM"
+            android:src="@drawable/ic_chat_reply" />
+
+</RelativeLayout>

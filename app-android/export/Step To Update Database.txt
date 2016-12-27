@@ -1,0 +1,25 @@
+SELECT title newrem , PROCESS , maincategoy , sublevel , _id , Name , Remedies , Intensity , Categoy , LEVEL , selected FROM `tbl_kent_Original_march` WHERE 1  ORDER BY `selected`  DESC
+
+
+Select Tbl_kent mysql table
+Step 1:SELECT title newrem , PROCESS , maincategoy , sublevel , _id , Name , Remedies , Intensity , Categoy , LEVEL , selected FROM `tbl_kent_Original_march` WHERE 1  ORDER BY `selected`  DESC
+
+Export Data my sql
+Step 2:Export Data my sql
+
+Step 3: Open in notepad++ sql file and replace 
+find : `tbl_kent` and replace tbl_shifa(newrem, PROCESS , maincategoy, sublevel, _id, Name, Remedies, Intensity, Categoy, LEVEL , selected) 
+
+
+Step 4: Open Sqlite browser
+Run Query: Delete from tbl_shifa where level = "";
+
+Step 5: Sqlite import .Notepad++ sql file
+
+
+
+
+SELECT _id, intensity, sublevel, remedies, name, title, categoy, COUNT( * ) cnt
+FROM  `tbl_kent` 
+GROUP BY categoy
+HAVING cnt =1

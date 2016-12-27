@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:orientation="vertical"
+ 
+ android:descendantFocusability="beforeDescendants"
+  android:focusableInTouchMode="true"
+  
+  >
+   <LinearLayout
+        android:id="@+id/mainChatOnlineGoogleAdsMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" >
+
+       <TextView
+           android:id="@+id/tv_chatonline_head"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBottom="@+id/imgbtnmsgsend"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentTop="true"
+           android:layout_toRightOf="@+id/img_chatonline_post"
+           android:gravity="center_vertical|fill_vertical"
+           android:text="@string/postforum"
+           android:textAppearance="?android:attr/textAppearanceMedium" />
+
+       <ImageView
+           android:id="@+id/img_chatonline_post"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true"
+           android:src="@drawable/ic_chatonline_from" />
+
+       <EditText
+           android:id="@+id/edChatOnlinePostQuickQuestion"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentRight="true"
+           android:hint="Write you question (minimum 15 character requried)"
+           android:layout_below="@+id/img_chatonline_post"
+           android:ems="10" >
+
+           <requestFocus />
+       </EditText>
+
+       <ImageView
+           android:id="@+id/imgbtnmsgsend"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/ic_chat_msg_send" />
+
+   </RelativeLayout>
+    
+       <ListView
+        android:id="@+id/lv_chatonline_result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:focusable="true" 
+        android:descendantFocusability="beforeDescendants"
+        android:drawSelectorOnTop="true" >
+
+    </ListView>
+    
+       
+</LinearLayout>

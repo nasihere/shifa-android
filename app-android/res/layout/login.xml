@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textShadow" >
+
+    <TextView
+        android:id="@+id/view_home_kent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/quickContactBadge1"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/quickContactBadge1"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" />
+
+    <EditText
+        android:id="@+id/edtLoginpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtLoginEmailId"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view_home_abbreviation"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="@string/emptystring" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/quickContactBadge1"
+        android:layout_marginTop="22dp"
+        android:text="@string/emailid"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/edtLoginEmailId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="@string/emptystring" />
+
+    <TextView
+        android:id="@+id/view_home_abbreviation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edtLoginEmailId"
+        android:text="@string/password"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edtLoginpassword"
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/btnFB"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/btnSignin"
+        android:layout_below="@+id/edtLoginpassword"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@+id/btnSignin"
+        android:background="@drawable/btn_blue"
+        android:drawableLeft="@drawable/ic_fb"
+        android:drawablePadding="7dp"
+        android:paddingLeft="20dp"
+        android:text="Login With Facebook"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/view_home_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnFB"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/btnSignin"
+        android:background="@color/c_gray"
+        android:gravity="center"
+        android:text="@string/Register" />
+
+    <TextView
+        android:id="@+id/tvLoginForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view_home_chat"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/btnSignin"
+        android:background="@color/c_gray"
+        android:gravity="center_horizontal"
+        android:text="@string/forgotpassword"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLoginThroughWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/view_home_chat"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvLoginForgotPassword"
+        android:layout_marginTop="18dp"
+        android:background="@color/c_gray"
+        android:gravity="center_horizontal"
+        android:text="@string/webreg"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLoginasguest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvLoginThroughWeb"
+        android:layout_marginTop="22dp"
+        android:layout_toRightOf="@+id/btnSignin"
+        android:background="@color/c_gray"
+        android:gravity="center_horizontal"
+        android:text="@string/WebDemologgedin"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLoginHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvLoginasguest"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/btnSignin"
+        android:background="@color/c_gray"
+        android:gravity="center_horizontal"
+        android:text="How to use shifa app?"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

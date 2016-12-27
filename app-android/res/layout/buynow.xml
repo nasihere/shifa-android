@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<ScrollView
+	    android:id="@+id/scrBuyNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/itm_buynw_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Become shifa member?"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/itm_buynw_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Buy Now to have unlimited access to entire app without interruption or trial period warning You will have easy access to materia medicas, chat, discussion. We thank you for using Shifa. We really appreciate it."
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/itm_buynw_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="Buy Now" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/itm_buynw_web_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Web Payment" />
+
+        <TextView
+            android:id="@+id/tvCancelButtonNotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="Wait!!! Cancel button will enabled after 2 seconds"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/c_red" />
+
+        <Button
+            android:id="@+id/itm_buynw_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Cancel" />
+
+        <TextView
+            android:id="@+id/itm_buynw_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="We want user to support the development of shifa to enable us to add more books and repertories, Support us for a better user experience."
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/itm_buynw_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="We request you to support the development of the app."
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <LinearLayout
+            android:id="@+id/itm_buynw_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/itm_buynw_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/itm_buynw8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="If you refer Shifa App to your family and friends and if they do registration in shifa we will make your account paid. TC Apply"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <Button
+            android:id="@+id/itm_buynw_tellafriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tell a friend" />
+
+        <Button
+            android:id="@+id/itm_buynw_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Help" />
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>

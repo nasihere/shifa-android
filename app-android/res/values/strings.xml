@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shifa</string>
+    <string name="hello_world">Shifa</string>
+    <string name="Sample_Repertory_Heading">Sensation</string>
+    <string name="Sample_Repertory_Category">Mind, Pain, Heel</string>
+    <string name="Sample_Repertory_Repertory"></string>
+    <string name="Sample_Repertory_ReadMe">Share a little bit about this symptom</string>
+    <string name="action_settings">Settings</string>
+    <string name="select">Select</string>
+    <string name="emptystring"></string>
+    <string name="Number">999</string>
+    <string name="sHome">Testing Toolz</string>
+    <string name="emailid">Email Id</string>
+    <string name="forgotpassword">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="RemediesShowHide"></string>
+    <string name="holder"></string>
+    <string name="ListPosition">0</string>
+    <string name="Register">I don\'t have account. Register Me!</string>
+
+    <color name="white">#FFFFFF</color>
+    <color name="textShadow">#F5F5F5</color>
+    <color name="textColor">#000000</color>
+    <color name="textGreenColor">#B4D7BF</color>
+    <color name="black">#000000</color>
+    <color name="Cream">#d9edf7</color>
+    <color name="CreamText">#3a87ad</color>
+	<color name="grayback">#F0F0F0</color>
+    <string name="s_home_kentrepertory">Kent Repertory</string>
+    <string name="s_home_reversedrepertory">Reversed Repertory</string>
+    <string name="s_home_chat">Chat</string>
+    <string name="s_home_abbreviation">Abbreviation</string>
+    <string name="s_home_mareriamedica">Materia Medica</string>
+    <string name="s_home_organon">Organon</string>
+    <string name="s_home_help">Help</string>
+    <string name="sChatOnline"></string>
+    <string name="slogout">LOGOUT</string>
+    <string name="action_search">Symtom...</string>
+    <string name="Dialog_SearchSetting">Search By</string>
+    <string name="SymptomReport">Symptom Report</string>
+    <string name="OTotalRemedies">"Order by Total Remedies "</string>
+    <string name="reg">Registration Page</string>
+    <string name="fname">First Name (Required)</string>
+    <string name="lname">Last Name</string>
+    <string name="email">Email Id  (Required)</string>
+    <string name="DOB">DOB (DD/MM/YYYY)</string>
+    <string name="Sex">Sex</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
+    <string name="City">City</string>
+    <string name="Country">Country</string>
+    <string name="regBtn">Register</string>
+    <string name="occu">Occupation</string>
+    <string name="radio_occu_student">Student</string>
+    <string name="radio_occu_doctor">Doctor</string>
+    <string name="regpassword">Password  (Required)</string>
+    <string name="status_rem">\@status_rem</string>
+    <string name="buy">Buy this App</string>
+    <string name="postforum">Whats on your mind for discussion today</string>
+    <string name="sChatOnlineReply">Reply</string>
+    <string name="sChatOnlineDelete">Delete</string>
+    <string name="demo">Demo</string>
+    <string name="webreg">Do you want to register through Web?</string>
+    <string name="WebDemologgedin">Do you want to Log in as Guest</string>
+    <string name="d_p_c_reply">Reply</string>
+    <string name="d_p_c_Cancel">Cancel</string>
+    <string name="loadoldmsg">Load Earlier Messages</string>
+    <string name="loadNextResult">More...</string>
+    
+<!--      <string name="app_id">678520882245977</string> -->
+     <string name="app_id">665652313532328</string>
+
+</resources>

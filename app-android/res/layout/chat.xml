@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:orientation="vertical"
+   android:id="@+id/MainChatView"
+ android:descendantFocusability="beforeDescendants"
+  android:focusableInTouchMode="true"
+ >
+  
+ <ListView
+     android:id="@+id/lstViewChat"
+     android:layout_width="fill_parent"
+     android:background="@android:color/transparent"
+     android:layout_height="fill_parent"
+     android:layout_weight="2.75"
+     
+     
+     android:drawSelectorOnTop="false" >
+
+</ListView>
+<LinearLayout
+    android:id="@+id/llout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:orientation="horizontal"
+    android:soundEffectsEnabled="true" >
+
+ <EditText
+     android:id="@+id/txtChatMsg"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:hint="Write a message"
+     android:layout_weight="0.76"
+     android:text="@string/emptystring" />
+
+ <ImageView
+     android:id="@+id/imgbtnmsgsend"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:src="@drawable/ic_chat_msg_send" />
+
+ 
+
+</LinearLayout>
+<TextView
+     android:id="@+id/Texttap_chat"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:background="@color/textShadow"
+     android:gravity="center_horizontal"
+     android:text="Tap on picture for private chat dialog"
+     android:textAppearance="?android:attr/textAppearanceSmall" />
+ </LinearLayout>

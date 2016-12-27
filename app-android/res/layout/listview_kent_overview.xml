@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/imgRemOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_launcher"
+            android:contentDescription="@string/emptystring" />
+
+        <TextView
+            android:id="@+id/tv_kent_overview_sympptoms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/tv_kent_overview_Count"
+            android:layout_toRightOf="@+id/imgRemOverview"
+            android:padding="5dp"
+            android:text="Symptoms"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+       
+<CheckBox
+        android:id="@+id/chckKentOverviewidbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCategory"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+		android:descendantFocusability="beforeDescendants"
+		android:focusable="false"
+		android:focusableInTouchMode="false"
+        android:layout_alignParentTop="true"
+        android:text="@string/emptystring" />
+
+<TextView
+    android:id="@+id/tv_kent_overview_Count"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/chckKentOverviewidbox"
+    android:layout_alignParentTop="true"
+    android:layout_toLeftOf="@+id/chckKentOverviewidbox"
+    android:gravity="center_horizontal|center_vertical"
+    android:text="Count"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:textColor="@color/c_blue" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_kent_overview_Remedies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Remedies" />
+
+</LinearLayout>

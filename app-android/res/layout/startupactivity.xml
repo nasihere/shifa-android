@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:padding="10dp"
+android:layout_height="match_parent"
+
+android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imgkentArrow"
+        android:gravity="center_horizontal"
+        android:text="Shifa Repertory Homoeopathy"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="Please wait... "
+        android:textColor="@color/c_gray"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/imgkentArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:text="The content and materials in Shifa Repertory  are for informational purposes only and should not be construed as medical advice.  Shifa Repertory does not provide medical advice; users of this guide should seek the advice of their own medical provider before undertaking any healing regimen.  The remedies contained herein are not FDA approved.  Do not disregard professional advice or delay in seeking medical treatment because of anything you read in this guide.
+
+By your use of this product, you agree to be bound by the following conditions of purchase: WORLDLINK, INC. AND THE AUTHORS OF Shifa WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES RESULTING IN WHOLE OR IN PART FROM ANY USER’S USE OF OR RELIANCE ON THIS GUIDE. Additionally, to the fullest extent permitted by law, the total liability of WorldLink, Inc., its owners, officers, directors, partners, employees and subconsultants to the purchaser for any and all claims, losses, costs or damages, including attorneys’ fees, resulting from or in any way related to purchaser’s use of Shifa shall not exceed the total amount paid by purchaser for Shifa. This limitation is intended to apply to any and all liability or cause of action however alleged or arising, unless prohibited by law.
+
+WorldLink, Inc. makes no representation or warranty, and expressly disclaims any liability with respect to the content of Shifa, including but not limited to any errors or omissions contained therein.
+
+If you do not agree with any of the terms of this disclaimer, you must discontinue use of this application immediately."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
